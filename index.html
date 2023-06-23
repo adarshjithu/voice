@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="div">hello wordld</h1>
+    
+<label id="speech-label">speech recognition</label>
+<input type="text" id="speech-text" onclick="record()">
+<script>
+   function record(){
+  
+
+var recognition=new webkitSpeechRecognition();
+recognition.lang='en-GB'
+console.log(recognition)
+console.log(recognition.onresult);
+recognition.onresult=function(event){
+    var color=event.results[0][0].transcript
+       document.getElementById('div').style.background=color
+
+}
+
+recognition.start()
+   }
+</script>
+</body>
+</html>
